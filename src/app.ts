@@ -130,6 +130,36 @@ const errorBag:ErrorContainer={
   email : 'Invalid Email',
   username: 'Invalid Username'
 }
+//--------------------------------------------Generics----------------------------------//
+function Identity<Type>(arg: Type) {
+  return arg;
+};
 
+let output = Identity<number>(5);
+//console.log(output);
+
+function loggingIn<Type>(arg: Type[]) {
+  //console.log(arg.length);
+  return arg.length;
+}
+output = loggingIn([1, 2, 3, 4, 5, 6]);
+//console.log(output);
+
+//let myIdentity: <input>(arg: input) => input = identity;
+//console.log(myIdentity("VED"));
+
+
+//Generic Interface
+interface GenericIdentityFn {
+  <Type>(arg: Type): Type;
+}
+
+function identity<Type>(arg: Type): Type {
+  return arg;
+};
+
+
+let myIdentity: GenericIdentityFn = identity;
+console.log(myIdentity(65));
 
 
